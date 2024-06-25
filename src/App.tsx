@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import "./App.css";
 import { getData } from "./api/api.countries";
@@ -15,22 +16,25 @@ function App() {
       )
     );
 
-  useEffect(() => {
-    const getCountryList = async () => {
-      const response = await getData();
-      const data: Country[] = await response.json();
-      console.log(data);
-      const countries: CountryInfo[] = data.map((country) => ({
+  const { data, isLoading } = useQuery<Country[], Error, CountryInfo[]>({
+    queryKey: ["countries"],
+    queryFn: getData,
+    select: (data: Country[]) => {
+      return data.map((country) => ({
         id: crypto.randomUUID(),
         name: country.name.common,
         capital: country.capital?.[0],
         flagUrl: country.flags.svg,
         isFavorite: false,
       }));
-      setCountries(countries);
-    };
-    getCountryList();
-  }, []);
+    },
+  });
+  useEffect(() => {
+    if (data) setCountries(data);
+  }, [isLoading]);
+
+  if (isLoading) return <>Loading...</>;
+
   return (
     <>
       <CountryCardList

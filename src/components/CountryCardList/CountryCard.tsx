@@ -10,18 +10,32 @@ function CountryCard({
   name,
   flagUrl,
   capital,
-  isFavorite,
+  area,
+  population,
+  gini,
 }: CountryCardProps) {
+  const [giniYear, giniValue] = gini ? gini[0] : [null, null];
+
   return (
     <div
       onClick={() => onClick(id)}
-      className={`box-border border-2 flex flex-col items-center p-4 w-full h-full gap-4 rounded-xl shadow-md hover:shadow-lg bg-[#FCFDFF] ${
-        isFavorite ? "border-lime-200" : "border-[#FCFDFF]"
-      }`}
+      className={`box-border flex flex-col items-center p-4 w-full h-[360px] gap-4 rounded-xl shadow-md hover:shadow-inner bg-[#FCFDFF] hover:bg-[#f3f3f3]`}
     >
-      <img className=" object-cover w-24" src={flagUrl} alt="국기" />
-      <h3 className=" self-start font-semibold text-lg">{name}</h3>
-      <p className=" self-start text-md">{capital}</p>
+      <img className="object-cover h-16 " src={flagUrl} alt="국기" />
+      <h3 className="text-lg font-semibold ">{name}</h3>
+      <p className="self-start text-md">{capital}</p>
+      {gini ? (
+        <p className="self-start text-md">
+          Gini: {giniValue}{" "}
+          <span className="text-sm text-gray-400 ">{giniYear}년</span>
+        </p>
+      ) : (
+        <p className="self-start text-md">Gini: -</p>
+      )}
+      <p className="self-start text-md">
+        인구: {population.toLocaleString()}명
+      </p>
+      <p className="self-start text-md">면적: {area.toLocaleString()}km²</p>
     </div>
   );
 }

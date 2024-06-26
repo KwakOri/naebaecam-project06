@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { getData } from "./api/api.countries";
 import CountryCardList from "./components/CountryCardList";
-import { Country, CountryInfo } from "./types/country";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
+import { useCountries } from "./query/country";
+import { CountryInfo } from "./types/country";
 
 function App() {
   const [countries, setCountries] = useState<CountryInfo[]>([]);
+
   const handleToggleIsFavorite = (id: CountryInfo["id"]) =>
     setCountries((prev) =>
       prev.map((country) =>
@@ -15,32 +17,24 @@ function App() {
       )
     );
 
+  const { data, isLoading } = useCountries();
   useEffect(() => {
-    const getCountryList = async () => {
-      const response = await getData();
-      const data: Country[] = await response.json();
-      console.log(data);
-      const countries: CountryInfo[] = data.map((country) => ({
-        id: crypto.randomUUID(),
-        name: country.name.common,
-        capital: country.capital?.[0],
-        flagUrl: country.flags.svg,
-        isFavorite: false,
-      }));
-      setCountries(countries);
-    };
-    getCountryList();
-  }, []);
+    if (data) setCountries(data);
+  }, [isLoading]);
+
+  if (isLoading) return <>Loading...</>;
+
   return (
     <>
+      <NavigationBar />
       <CountryCardList
-        listTitle="My Favorite Countries"
+        listTitle="내가 좋아하는 나라"
         countries={countries}
         handleToggleIsFavorite={handleToggleIsFavorite}
         isFavorite={true}
       />
       <CountryCardList
-        listTitle="All Countries"
+        listTitle="모든 나라"
         countries={countries}
         handleToggleIsFavorite={handleToggleIsFavorite}
         isFavorite={false}

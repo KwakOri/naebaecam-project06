@@ -25,9 +25,14 @@ function CountryCard({
       <img className="object-cover h-16 " src={flagUrl} alt="국기" />
       <h3 className="self-start text-lg font-semibold ">{name}</h3>
       <p className="self-start text-md">{capital}</p>
-      <p className="self-start text-md">
-        {gini ? `Gini: ${giniYear}년 - ${giniValue}` : "-"}
-      </p>
+      {gini ? (
+        <p className="self-start text-md">
+          Gini: {giniValue}{" "}
+          <span className="text-sm text-gray-400 ">{giniYear}년</span>
+        </p>
+      ) : (
+        <p className="self-start text-md">Gini: -</p>
+      )}
       <p className="self-start text-md">
         인구: {population.toLocaleString()}명
       </p>

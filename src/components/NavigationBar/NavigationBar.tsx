@@ -1,5 +1,11 @@
+import OrderOptions from "./OrderOptions";
+
 function NavigationBar() {
-  return <div>NavigationBar</div>;
+  return (
+    <div>
+      <OrderOptions />
+    </div>
+  );
 }
 
 export default NavigationBar;

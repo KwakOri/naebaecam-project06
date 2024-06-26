@@ -8,11 +8,7 @@ export interface Country {
   };
 }
 
-export interface CountryInfo {
+export interface CountryInfo extends Country {
   id: string;
   isFavorite: boolean;
-
-  name: string;
-  capital: string;
-  flagUrl: string;
 }

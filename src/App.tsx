@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { getData } from "./api/api.countries";
 import CountryCardList from "./components/CountryCardList";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
 import { Country, CountryInfo } from "./types/country";
 
 function App() {
@@ -22,10 +23,11 @@ function App() {
     select: (data: Country[]) => {
       return data.map((country) => ({
         id: crypto.randomUUID(),
+        isFavorite: false,
+
         name: country.name.common,
         capital: country.capital?.[0],
         flagUrl: country.flags.svg,
-        isFavorite: false,
       }));
     },
   });
@@ -37,6 +39,7 @@ function App() {
 
   return (
     <>
+      <NavigationBar />
       <CountryCardList
         listTitle="My Favorite Countries"
         countries={countries}

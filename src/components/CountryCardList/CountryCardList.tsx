@@ -1,3 +1,4 @@
+import { useOrderStore } from "../../store/store";
 import { CountryInfo } from "../../types/country";
 import CountryCard from "./CountryCard";
 import ListTitle from "./ListTitle";
@@ -15,10 +16,28 @@ function CountryCardList({
   isFavorite,
   listTitle,
 }: CountryCardListProps) {
+  const order = useOrderStore((state) => state.order);
+  switch (order) {
+    case "PopularDesc":
+      countries.sort((a, b) => b.population - a.population);
+      break;
+    case "PopularAsc":
+      countries.sort((a, b) => a.population - b.population);
+      break;
+    case "AreaDesc":
+      countries.sort((a, b) => b.area - a.area);
+      break;
+    case "AreaAsc":
+      countries.sort((a, b) => a.area - b.area);
+      break;
+    default:
+      countries.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+  }
   return (
     <>
       <ListTitle>{listTitle}</ListTitle>
-      <ul className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {countries
           .filter((item) => item.isFavorite === isFavorite)
           .map((item, i) => {

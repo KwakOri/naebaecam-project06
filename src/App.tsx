@@ -1,13 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import "./App.css";
-import { getData } from "./api/api.countries";
 import CountryCardList from "./components/CountryCardList";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
-import { Country, CountryInfo } from "./types/country";
+import { useCountries } from "./query/country";
+import { CountryInfo } from "./types/country";
 
 function App() {
   const [countries, setCountries] = useState<CountryInfo[]>([]);
+
   const handleToggleIsFavorite = (id: CountryInfo["id"]) =>
     setCountries((prev) =>
       prev.map((country) =>
@@ -17,26 +17,7 @@ function App() {
       )
     );
 
-  const { data, isLoading } = useQuery<Country[], Error, CountryInfo[]>({
-    queryKey: ["countries"],
-    queryFn: getData,
-    select: (data: Country[]) => {
-      console.log(data);
-      return data.map((country) => {
-        return {
-          id: crypto.randomUUID(),
-          isFavorite: false,
-
-          name: country.name.common,
-          capital: country.capital?.[0],
-          flagUrl: country.flags.svg,
-          gini: country.gini ? Object.entries(country.gini) : null,
-          area: country.area,
-          population: country.population,
-        };
-      });
-    },
-  });
+  const { data, isLoading } = useCountries();
   useEffect(() => {
     if (data) setCountries(data);
   }, [isLoading]);

@@ -14,13 +14,12 @@ function CountryCard({
   population,
   gini,
 }: CountryCardProps) {
-  console.log(area, population, gini);
   const [giniYear, giniValue] = gini ? gini[0] : [null, null];
 
   return (
     <div
       onClick={() => onClick(id)}
-      className={`box-border flex flex-col items-center p-4 w-full h-full gap-4 rounded-xl shadow-md hover:shadow-lg bg-[#FCFDFF]`}
+      className={`box-border flex flex-col items-center p-4 w-full h-full gap-4 rounded-xl shadow-md hover:shadow-inner bg-[#FCFDFF] hover:bg-[#f3f3f3]`}
     >
       <img className="object-cover h-16 " src={flagUrl} alt="국기" />
       <h3 className="self-start text-lg font-semibold ">{name}</h3>

@@ -1,3 +1,10 @@
+export type Order =
+  | "PopularDesc"
+  | "PopularAsc"
+  | "AreaDesc"
+  | "AreaAsc"
+  | null;
+
 export interface Country {
   name: {
     common: string;
@@ -20,9 +27,5 @@ export interface CountryInfo {
   flagUrl: string;
   population: number;
   area: number;
-  gini: any;
+  gini: [string, number][] | null;
 }
-
-export type Entries<T> = {
-  [K in keyof T]: [K, T[K]];
-}[keyof T][];

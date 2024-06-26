@@ -1,23 +1,43 @@
-const OrderOptions = () => {
-  return (
-    <>
-      <ul>
-        <li>
-          <button className=" px-4 py-2 rounded-md shadow-md bg-[#FCFDFF]">
-            인구
-          </button>
-        </li>
-        <li>
-          <button>면적</button>
-        </li>
-      </ul>
+import { useOrderStore } from "../../store/store";
+import { Order } from "../../types/country";
+import { OrderButton } from "./OrderButton";
 
-      <ul>
+const OrderOptions = () => {
+  const { setOrder } = useOrderStore();
+  const order = useOrderStore((state) => state.order);
+  const handleClickButton = (newOrder: Order) => {
+    if (order === newOrder) {
+      setOrder(null);
+    } else {
+      setOrder(newOrder);
+    }
+  };
+
+  return (
+    <div className="flex w-[600px] justify-between">
+      <ul className="flex gap-4 ">
         <li>
-          <button>인구</button>
+          <OrderButton onClick={handleClickButton} value={"PopularDesc"}>
+            인구많은순
+          </OrderButton>
+        </li>
+        <li>
+          <OrderButton onClick={handleClickButton} value={"PopularAsc"}>
+            인구적은순
+          </OrderButton>
+        </li>
+        <li>
+          <OrderButton onClick={handleClickButton} value={"AreaDesc"}>
+            면적넓은순
+          </OrderButton>
+        </li>
+        <li>
+          <OrderButton onClick={handleClickButton} value={"AreaAsc"}>
+            면적좁은순
+          </OrderButton>
         </li>
       </ul>
-    </>
+    </div>
   );
 };
 

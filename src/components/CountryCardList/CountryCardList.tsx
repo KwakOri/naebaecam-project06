@@ -1,7 +1,9 @@
+import _ from "lodash";
 import { useOrderStore } from "../../store/store";
 import { CountryInfo } from "../../types/country";
 import CountryCard from "./CountryCard";
 import ListTitle from "./ListTitle";
+import NoResult from "./NoResult";
 
 type CountryCardListProps = {
   countries: CountryInfo[];
@@ -17,6 +19,7 @@ function CountryCardList({
   listTitle,
 }: CountryCardListProps) {
   const order = useOrderStore((state) => state.order);
+  const search = useOrderStore((state) => state.search);
   switch (order) {
     case "PopularDesc":
       countries.sort((a, b) => b.population - a.population);
@@ -34,20 +37,33 @@ function CountryCardList({
       countries.sort((a, b) => a.name.localeCompare(b.name));
       break;
   }
+
+  const filteredCountries = countries.filter((country) =>
+    country.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
       <ListTitle>{listTitle}</ListTitle>
-      <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {countries
-          .filter((item) => item.isFavorite === isFavorite)
-          .map((item, i) => {
-            return (
-              <li key={i}>
-                <CountryCard onClick={handleToggleIsFavorite} {...item} />
-              </li>
-            );
-          })}
-      </ul>
+
+      {_.find(
+        filteredCountries,
+        (country) => country.isFavorite === isFavorite
+      ) ? (
+        <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {filteredCountries
+            .filter((item) => item.isFavorite === isFavorite)
+            .map((item, i) => {
+              return (
+                <li key={i}>
+                  <CountryCard onClick={handleToggleIsFavorite} {...item} />
+                </li>
+              );
+            })}
+        </ul>
+      ) : (
+        <NoResult />
+      )}
     </>
   );
 }

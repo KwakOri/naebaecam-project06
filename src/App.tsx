@@ -28,13 +28,13 @@ function App() {
     <>
       <NavigationBar />
       <CountryCardList
-        listTitle="My Favorite Countries"
+        listTitle="내가 좋아하는 나라"
         countries={countries}
         handleToggleIsFavorite={handleToggleIsFavorite}
         isFavorite={true}
       />
       <CountryCardList
-        listTitle="All Countries"
+        listTitle="모든 나라"
         countries={countries}
         handleToggleIsFavorite={handleToggleIsFavorite}
         isFavorite={false}

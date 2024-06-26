@@ -21,14 +21,20 @@ function App() {
     queryKey: ["countries"],
     queryFn: getData,
     select: (data: Country[]) => {
-      return data.map((country) => ({
-        id: crypto.randomUUID(),
-        isFavorite: false,
+      console.log(data);
+      return data.map((country) => {
+        return {
+          id: crypto.randomUUID(),
+          isFavorite: false,
 
-        name: country.name.common,
-        capital: country.capital?.[0],
-        flagUrl: country.flags.svg,
-      }));
+          name: country.name.common,
+          capital: country.capital?.[0],
+          flagUrl: country.flags.svg,
+          gini: country.gini ? Object.entries(country.gini) : null,
+          area: country.area,
+          population: country.population,
+        };
+      });
     },
   });
   useEffect(() => {

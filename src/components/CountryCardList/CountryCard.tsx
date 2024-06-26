@@ -19,7 +19,7 @@ function CountryCard({
   return (
     <div
       onClick={() => onClick(id)}
-      className={`box-border flex flex-col items-center p-4 w-full h-[360px] gap-4 rounded-xl shadow-md hover:shadow-inner bg-[#FCFDFF] hover:bg-[#f3f3f3]`}
+      className={`box-border flex flex-col items-center p-4 w-full h-[360px] gap-4 rounded-xl shadow-md hover:shadow-inner bg-[#FCFDFF] hover:bg-[#f3f3f3] cursor-pointer`}
     >
       <img className="object-cover h-16 " src={flagUrl} alt="국기" />
       <h3 className="text-lg font-semibold ">{name}</h3>

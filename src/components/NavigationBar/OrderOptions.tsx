@@ -14,7 +14,7 @@ const OrderOptions = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-16 gap-4 md:w-[600px] lg:w-[600px] ">
+    <div className="flex items-center justify-center w-full h-16 gap-4 md:max-w-[600px] lg:w-[600px] md:mr-4 lg:mr-4">
       <ul className="flex gap-4 ">
         <li>
           <OrderButton onClick={handleClickButton} value={"PopularDesc"}>

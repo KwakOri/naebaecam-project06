@@ -1,5 +1,6 @@
+import { AREA_ASC, AREA_DESC, POPULAR_ASC, POPULAR_DESC } from "../../etc";
 import { useOrderStore } from "../../store/store";
-import { Order } from "../../types/country";
+import { Order } from "../../types/schemas";
 import { OrderButton } from "./OrderButton";
 
 const OrderOptions = () => {
@@ -17,22 +18,22 @@ const OrderOptions = () => {
     <div className="flex items-center justify-center w-full h-16 gap-4 md:max-w-[600px] lg:w-[600px] md:mr-4 lg:mr-4">
       <ul className="flex gap-4 ">
         <li>
-          <OrderButton onClick={handleClickButton} value={"PopularDesc"}>
+          <OrderButton onClick={handleClickButton} value={POPULAR_DESC}>
             인구많은순
           </OrderButton>
         </li>
         <li>
-          <OrderButton onClick={handleClickButton} value={"PopularAsc"}>
+          <OrderButton onClick={handleClickButton} value={POPULAR_ASC}>
             인구적은순
           </OrderButton>
         </li>
         <li>
-          <OrderButton onClick={handleClickButton} value={"AreaDesc"}>
+          <OrderButton onClick={handleClickButton} value={AREA_DESC}>
             면적넓은순
           </OrderButton>
         </li>
         <li>
-          <OrderButton onClick={handleClickButton} value={"AreaAsc"}>
+          <OrderButton onClick={handleClickButton} value={AREA_ASC}>
             면적좁은순
           </OrderButton>
         </li>

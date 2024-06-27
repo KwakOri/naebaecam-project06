@@ -1,6 +1,7 @@
 import _ from "lodash";
+import { AREA_ASC, AREA_DESC, POPULAR_ASC, POPULAR_DESC } from "../../etc";
 import { useOrderStore } from "../../store/store";
-import { CountryInfo } from "../../types/country";
+import { CountryInfo } from "../../types/schemas";
 import CountryCard from "./CountryCard";
 import ListTitle from "./ListTitle";
 import NoResult from "./NoResult";
@@ -21,16 +22,16 @@ function CountryCardList({
   const order = useOrderStore((state) => state.order);
   const search = useOrderStore((state) => state.search);
   switch (order) {
-    case "PopularDesc":
+    case POPULAR_DESC:
       countries.sort((a, b) => b.population - a.population);
       break;
-    case "PopularAsc":
+    case POPULAR_ASC:
       countries.sort((a, b) => a.population - b.population);
       break;
-    case "AreaDesc":
+    case AREA_DESC:
       countries.sort((a, b) => b.area - a.area);
       break;
-    case "AreaAsc":
+    case AREA_ASC:
       countries.sort((a, b) => a.area - b.area);
       break;
     default:

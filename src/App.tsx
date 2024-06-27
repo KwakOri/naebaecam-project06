@@ -3,7 +3,7 @@ import "./App.css";
 import CountryCardList from "./components/CountryCardList";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import { useCountries } from "./query/country";
-import { CountryInfo } from "./types/country";
+import { CountryInfo } from "./types/schemas";
 
 function App() {
   const [countries, setCountries] = useState<CountryInfo[]>([]);

@@ -1,4 +1,4 @@
-import { CountryInfo } from "../../types/country";
+import { CountryInfo } from "../../types/schemas";
 
 interface CountryCardProps extends CountryInfo {
   onClick: (id: string) => void;

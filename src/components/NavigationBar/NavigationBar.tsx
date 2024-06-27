@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 
 function NavigationBar() {
   return (
-    <div className="flex flex-col items-center justify-between md:flex-row lg:flex-row">
+    <div className=" sticky top-0 bg-[#FCFDFF] flex flex-col items-center justify-between p-4 shadow-md md:flex-row lg:flex-row">
       <OrderOptions />
       <SearchBar />
     </div>

@@ -19,8 +19,8 @@ export const OrderButton = ({
         onClick={() => onClick(value)}
         className={`transition w-28 h-12 px-4 py-2 rounded-md hover:bg-[#f3f3f3] ${
           value === order
-            ? "bg-[#FCFDFF] shadow-inner text-gray-400"
-            : "bg-[#FCFDFF] shadow-md"
+            ? "bg-[#ffffff] shadow-inner text-gray-400"
+            : "bg-[#ffffff] shadow-md"
         }`}
       >
         {children}

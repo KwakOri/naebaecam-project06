@@ -10,7 +10,7 @@ const SearchBar = () => {
   return (
     <div className="flex items-center justify-center w-full h-16 md:justify-end lg:justify-end">
       <input
-        className=" grow max-w-[500px] w-full md:w-80 lg:w-80 h-12 px-4 py-2 rounded-md shadow-md bg-[#FCFDFF] focus:outline-none focus:shadow-inner"
+        className=" grow max-w-[500px] w-full md:w-80 lg:w-80 h-12 px-4 py-2 rounded-md shadow-md bg-[#ffffff] focus:outline-none focus:shadow-inner"
         value={search}
         onChange={handleSearchChange}
         id="search"

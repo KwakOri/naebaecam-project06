@@ -6,7 +6,6 @@ const SearchBar = () => {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-  console.log(search);
   return (
     <div className="flex items-center justify-center w-full h-16 md:justify-end lg:justify-end">
       <input

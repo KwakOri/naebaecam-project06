@@ -7,3 +7,5 @@ export const useOrderStore = create<TOrderStore>((set) => ({
   setOrder: (newOrder) => set(() => ({ order: newOrder })),
   setSearch: (newSearch) => set(() => ({ search: newSearch })),
 }));
+
+export const useCountriesStore = create;

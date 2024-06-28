@@ -7,7 +7,7 @@
 
 ## 프로젝트 미리보기
 
-<img width="1440" alt="스크린샷 2024-06-28 오후 1 27 41(2)" src="https://github.com/KwakOri/naebaecam-project06/assets/90024085/010b08b3-d4f1-4575-8947-3e74afc064c2">
+<img width="1278" alt="스크린샷 2024-06-28 오후 1 30 38" src="https://github.com/KwakOri/naebaecam-project06/assets/90024085/e6577794-9531-414f-bb9b-02ea13f164d4">
 
 ## 🔖 링크
 

@@ -1,4 +1,9 @@
-import { AREA_ASC, AREA_DESC, POPULAR_ASC, POPULAR_DESC } from "../../etc";
+import {
+  AREA_ASC,
+  AREA_DESC,
+  POPULAR_ASC,
+  POPULAR_DESC,
+} from "../../constants/constants";
 import { useOrderStore } from "../../store/store";
 import { Order } from "../../types/schemas";
 import { OrderButton } from "./OrderButton";

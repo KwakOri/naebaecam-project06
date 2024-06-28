@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { useOrderStore } from "../../store/store";
-import { Order } from "../../types/schemas";
+import { Order } from "../../types/country.types";
 
 interface TOrderButton {
   onClick: (newOrder: Order) => void;

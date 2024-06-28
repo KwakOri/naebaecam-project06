@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import { useEffect, useState } from "react";
 import { useToast } from "../../contexts/Toast.context";
-import { TToast } from "../../types/toast";
+import { TToast } from "../../types/toast.types";
 
 const ToastStatusVariants = cva("absolute w-4 h-4 rounded-full top-2 left-2", {
   variants: {

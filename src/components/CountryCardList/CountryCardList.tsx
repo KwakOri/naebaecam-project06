@@ -6,7 +6,7 @@ import {
   POPULAR_DESC,
 } from "../../constants/constants";
 import { useOrderStore } from "../../store/store";
-import { CountryInfo } from "../../types/schemas";
+import { CountryInfo } from "../../types/country.types";
 import CountryCard from "./CountryCard";
 import ListTitle from "./ListTitle";
 import NoResult from "./NoResult";

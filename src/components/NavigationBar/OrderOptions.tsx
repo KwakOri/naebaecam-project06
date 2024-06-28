@@ -5,7 +5,7 @@ import {
   POPULAR_DESC,
 } from "../../constants/constants";
 import { useOrderStore } from "../../store/store";
-import { Order } from "../../types/schemas";
+import { Order } from "../../types/country.types";
 import { OrderButton } from "./OrderButton";
 
 const OrderOptions = () => {

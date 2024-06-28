@@ -1,8 +1,18 @@
+import { cva } from "class-variance-authority";
 import { useEffect, useState } from "react";
 import { useToast } from "../../contexts/Toast.context";
 import { TToast } from "../../types/toast";
 
-export const Toast = ({ id, title, content, time }: TToast) => {
+const ToastStatusVariants = cva("absolute w-4 h-4 rounded-full top-2 left-2", {
+  variants: {
+    type: {
+      Add: "bg-green-500",
+      Delete: "bg-orange-500",
+    },
+  },
+});
+
+export const Toast = ({ id, title, content, time, type }: TToast) => {
   const TOAST_DURATION = 500;
   const toast = useToast();
   const [show, setShow] = useState(false);
@@ -41,10 +51,11 @@ export const Toast = ({ id, title, content, time }: TToast) => {
           clearInterval(timer);
           deleteToast(0);
         }}
-        className="absolute w-6 h-6 font-black text-gray-500 bg-gray-200 top-2 right-2 rounded-xl"
+        className="absolute px-2 py-1 text-sm font-black text-gray-500 bg-gray-200 top-2 right-2 rounded-2xl"
       >
-        x
+        닫기
       </button>
+      <div className={ToastStatusVariants({ type })}></div>
     </div>
   );
 };

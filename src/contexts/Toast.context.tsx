@@ -20,8 +20,11 @@ export const useToast = () => useContext(ToastContext);
 export const ToastProvider = ({ children }: PropsWithChildren) => {
   const [toasts, setToasts] = useState<TToast[]>([]);
   const value: TToastContext = {
-    add: ({ title, content, time }) => {
-      setToasts((prev) => [...prev, { title, content, time, id: uuidv4() }]);
+    add: ({ title, content, time, type }) => {
+      setToasts((prev) => [
+        ...prev,
+        { title, type, content, time, id: uuidv4() },
+      ]);
     },
     delete: (id) => {
       setToasts((prev) => prev.filter((toast) => toast.id !== id));
@@ -35,6 +38,7 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
         {toasts &&
           toasts.map((toast) => (
             <Toast
+              type={toast.type}
               id={toast.id}
               key={toast.id}
               title={toast.title}

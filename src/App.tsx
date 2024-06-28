@@ -17,12 +17,14 @@ function App() {
 
         if (country.isFavorite) {
           toast.add({
+            type: "Delete",
             title: `목록 제거`,
             content: `"${country.name}"이 목록에서 제거되었습니다.`,
             time: 5000,
           });
         } else {
           toast.add({
+            type: "Add",
             title: `목록 추가`,
             content: `"${country.name}"이 목록에 추가되었습니다.`,
             time: 5000,

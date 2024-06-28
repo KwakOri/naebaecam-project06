@@ -1,4 +1,4 @@
-import { CountryInfo, Order } from "../types/schemas";
+import { CountryInfo, Order } from "../types/country.types";
 
 export interface TOrderStore {
   order: Order;

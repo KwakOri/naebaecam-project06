@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Toast } from "../components/Toast/Toast";
-import { TToast } from "../types/toast";
+import { TToast } from "../types/toast.types";
 
 interface TToastContext {
   add: (toast: TToast) => void;

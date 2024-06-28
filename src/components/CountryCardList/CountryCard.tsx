@@ -1,6 +1,6 @@
 import { useToast } from "../../contexts/Toast.context";
 import { useCountriesStore } from "../../store/store";
-import { CountryInfo } from "../../types/schemas";
+import { CountryInfo } from "../../types/country.types";
 
 interface CountryCardProps extends CountryInfo {}
 

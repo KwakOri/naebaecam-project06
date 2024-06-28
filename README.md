@@ -11,7 +11,7 @@
 
 ## 🔖 링크
 
-- [페이지 바로가기](https://naebaecam-project06.vercel.app/)
+- [프로젝트 배포 페이지 바로가기](https://naebaecam-project06.vercel.app/)
 
 ## ⏳ 개발 기간
 

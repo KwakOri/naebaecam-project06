@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TCountriesStore, TOrderStore } from "./types";
+import { TCountriesStore, TOrderStore } from "./store.types";
 
 export const useOrderStore = create<TOrderStore>((set) => ({
   order: null,

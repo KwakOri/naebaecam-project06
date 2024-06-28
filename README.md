@@ -1,31 +1,37 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 # naebaecam-project06
+
+## 🗂️ 프로젝트 소개
+
+내일배움캠프 React 5기 chapter 05 개인 프로젝트입니다!<br>
+프로젝트 메인 테마는 국가별 정보 목록 사이트입니다!
+
+## 🔖 링크
+
+- [페이지 바로가기](https://naebaecam-project06.vercel.app/)
+
+## ⏳ 개발 기간
+
+2024.06.24(월) ~ 2024.06.28(금)
+
+## 🐤 개발자 소개
+
+곽재훈
+
+벨로그 주소: <a href="https://velog.io/@jh5414092/posts">velog: https://velog.io/@jh5414092/posts</a>
+
+## 기술 스택
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/> <img src="https://img.shields.io/badge/react.js-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+
+
+## 📌 주요 기능
+
+- [ x ]  vite, react, typescript 기반의 프로젝트를 시작합니다.
+- [ x ]  제공된 API 를 호출하는 로직을 작성하고 적절한 타입을 사용합니다.
+- [ x ]  API 의 응답 값을 컴포넌트에서 useState 를 이용해 상태관리를 해줍니다. 적절한 타입이 꼭 명시되어야 합니다.
+- [ x ]  useState 에서 상태관리되고 있는 값들을 화면에 보여주고, 사용자와 인터렉션 (선택/해제) 가 가능하도록 합니다. 이 과정에서 적절한 타입이 명시되어 있는 함수를 사용하도록 합니다.
+
+Readme 작성에 참고한 링크
+
+- <a href="https://velog.io/@cotn963/TIL-4-GITHUB-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-README-%EA%BE%B8%EB%AF%B8%EA%B8%B0">차슈님 벨로그</a>
+
+- <a href="https://cocoon1787.tistory.com/689">코딩 공부 일지님 티스토리</a>

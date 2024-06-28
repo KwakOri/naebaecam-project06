@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TOrderStore } from "./types";
+import { TCountriesStore, TOrderStore } from "./types";
 
 export const useOrderStore = create<TOrderStore>((set) => ({
   order: null,
@@ -8,4 +8,7 @@ export const useOrderStore = create<TOrderStore>((set) => ({
   setSearch: (newSearch) => set(() => ({ search: newSearch })),
 }));
 
-export const useCountriesStore = create;
+export const useCountriesStore = create<TCountriesStore>((set) => ({
+  countries: [],
+  setCountries: (newCountries) => set(() => ({ countries: newCountries })),
+}));

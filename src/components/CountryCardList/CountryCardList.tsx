@@ -13,14 +13,12 @@ import NoResult from "./NoResult";
 
 type CountryCardListProps = {
   countries: CountryInfo[];
-  handleToggleIsFavorite: (id: string) => void;
   isFavorite: boolean;
   listTitle: string;
 };
 
 function CountryCardList({
   countries,
-  handleToggleIsFavorite,
   isFavorite,
   listTitle,
 }: CountryCardListProps) {
@@ -62,7 +60,7 @@ function CountryCardList({
             .map((item, i) => {
               return (
                 <li key={i}>
-                  <CountryCard onClick={handleToggleIsFavorite} {...item} />
+                  <CountryCard {...item} />
                 </li>
               );
             })}

@@ -1,4 +1,4 @@
-import { Country, Order } from "../types/schemas";
+import { CountryInfo, Order } from "../types/schemas";
 
 export interface TOrderStore {
   order: Order;
@@ -8,6 +8,6 @@ export interface TOrderStore {
 }
 
 export interface TCountriesStore {
-  countries: Country[];
-  setCountries: (newCountries: Country[]) => void;
+  countries: CountryInfo[];
+  setCountries: (newCountries: CountryInfo[]) => void;
 }

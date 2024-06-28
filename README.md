@@ -5,6 +5,10 @@
 내일배움캠프 React 5기 chapter 05 개인 프로젝트입니다!<br>
 프로젝트 메인 테마는 국가별 정보 목록 사이트입니다!
 
+## 프로젝트 미리보기
+
+<img width="1440" alt="스크린샷 2024-06-28 오후 1 27 41(2)" src="https://github.com/KwakOri/naebaecam-project06/assets/90024085/010b08b3-d4f1-4575-8947-3e74afc064c2">
+
 ## 🔖 링크
 
 - [페이지 바로가기](https://naebaecam-project06.vercel.app/)

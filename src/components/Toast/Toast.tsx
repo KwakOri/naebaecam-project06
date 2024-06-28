@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useToast } from "../../contexts/Toast.context";
 import { TToast } from "../../types/toast.types";
 
-const ToastStatusVariants = cva("absolute w-4 h-4 rounded-full top-2 left-2", {
+const ToastStatusVariants = cva("w-4 h-4 rounded-full", {
   variants: {
     type: {
       Add: "bg-green-500",
@@ -37,25 +37,27 @@ export const Toast = ({ id, title, content, time, type }: TToast) => {
 
   return (
     <div
-      className={`py-4 bg-white mt-4 transition-all duration-500 w-[320px] pl-6 pr-10 flex flex-col justify-center rounded-md border border-solid border-gray-200 shadow-lg relative ${
+      className={`py-2 px-4 bg-white mt-4 transition-all duration-500 w-[320px] flex flex-col justify-center rounded-md border border-solid border-gray-200 shadow-lg relative ${
         show ? "right-0" : "-right-[400px]"
       }`}
     >
-      <h3 className="mb-1 font-extrabold text-gray-600 text-overflow">
-        {title}
-      </h3>
-      <p className="text-left">{content}</p>
+      <div className="flex items-center justify-between pb-4">
+        <div className={ToastStatusVariants({ type })}></div>
+        <h3 className="mb-1 font-extrabold text-gray-600 text-overflow">
+          {title}
+        </h3>
 
-      <button
-        onClick={() => {
-          clearInterval(timer);
-          deleteToast(0);
-        }}
-        className="absolute px-2 py-1 text-sm font-black text-gray-500 bg-gray-200 top-2 right-2 rounded-2xl"
-      >
-        닫기
-      </button>
-      <div className={ToastStatusVariants({ type })}></div>
+        <button
+          onClick={() => {
+            clearInterval(timer);
+            deleteToast(0);
+          }}
+          className="px-2 py-1 text-[12px] font-semibold text-gray-700 bg-gray-200 rounded-full"
+        >
+          닫기
+        </button>
+      </div>
+      <p className="text-left">{content}</p>
     </div>
   );
 };
